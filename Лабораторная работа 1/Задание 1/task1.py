@@ -120,7 +120,7 @@ class Book:
 
         >>> book = Book("Metro 2033", "Dmitry Glukhovsky", 328)
         >>> book.read(50)
-        'Прочитано 50 страниц из 328.'
+        'Вы прочитали 50 страниц из 328.'
         """
         if pages_to_read <= 0:
             raise ValueError("Количество страниц для чтения должно быть положительным числом.")

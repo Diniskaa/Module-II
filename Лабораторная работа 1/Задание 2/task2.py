@@ -9,15 +9,15 @@ if __name__ == "__main__":
 
     try:
         print(book.read(-5)) # TODO: вызвать метод с некорректными аргументами(b)
-    except TypeError:
+    except ValueError:
         print('Ошибка: неправильные данные')
 
     try:
         print(car.drive(-10)) # TODO: вызвать метод с некорректными аргументами(a)
-    except TypeError:
+    except ValueError:
         print('Ошибка: неправильные данные')
 
     try:
-        print(tree.grow(-1)) # TODO: вызвать метод с некорректными аргументами(a)
+        tree.grow(1.2) # TODO: вызвать метод с некорректными аргументами(a)
     except TypeError:
         print('Ошибка: неправильные данные')

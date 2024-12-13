@@ -7,6 +7,13 @@ class Tree:
         :param height: Высота дерева в метрах (больше 0).
         :param age: Возраст дерева в годах (больше 0).
         """
+        if not isinstance(species, str):
+            raise TypeError("species должен быть строкой.")
+        if not isinstance(height, (int, float)):
+            raise TypeError("height должен быть числом.")
+        if not isinstance(age, int):
+            raise TypeError("age должен быть целым числом.")
+
         if height <= 0:
             raise ValueError("Высота дерева должна быть больше 0.")
         if age < 0:
@@ -19,13 +26,14 @@ class Tree:
     def grow(self, years: int) -> str:
         """
         Фун-я увеличивает возраст и высоту дерева.
-
         :param years: Количество лет, на которое нужно увеличить возраст (больше 0).
         :return: Сообщение о росте дерева.
         >>> tree = Tree('дуб', 5, 10)
         >>> tree.grow(5)
         'Дерево выросло на 5 лет и теперь имеет высоту 6.0 метров.'
         """
+        if not isinstance(years, int):
+            raise TypeError("years должен быть целым числом.")
         if years < 0:
             raise ValueError("Количество лет не может быть отрицательным.")
 
@@ -36,7 +44,6 @@ class Tree:
     def get_info(self) -> str:
         """
         Возвращает информацию о дереве.
-
         :return: Строка с информацией о дереве.
         >>> tree = Tree('дуб', 5, 10)
         >>> tree.get_info()
@@ -49,7 +56,6 @@ class Car:
     def __init__(self, make: str, model: str, year: int):
         """
         Инициализация автомобиля.
-
         :param make: Производитель автомобиля.
         :param model: Модель автомобиля.
         :param year: Год выпуска (не меньше 1910).
@@ -65,11 +71,9 @@ class Car:
     def drive(self, distance: float) -> str:
         """
         Поездка на автомобиле на расстояние.
-
         :param distance: расстояние в километрах (больше 0).
         :raises ValueError: Если расстояние меньше 0.
         :return: Строка с сообщением о поездке.
-
         >>> car = Car("Toyota", "Mark II", 1990)
         >>> car.drive(15)
         'Вы проехали 15 километров на Toyota Mark II.'
@@ -82,10 +86,8 @@ class Car:
     def get_age(self, current_year: int) -> int:
         """
         Получение возраста автомобиля.
-
         :param current_year: Текущий год.
         :return: Возраст автомобиля.
-
         >>> car = Car("Toyota", "Mark II", 1990)
         >>> car.get_age(2023)
         33
@@ -97,7 +99,6 @@ class Book:
     def __init__(self, title: str, author: str, pages: int):
         """
         Инициализация книги.
-
         :param title: Название книги.
         :param author: Автор книги.
         :param pages: Количество страниц (больше 0).
@@ -113,11 +114,9 @@ class Book:
     def read(self, pages_to_read: int) -> str:
         """
         Чтение определенного количества страниц.
-
         :param pages_to_read: Количество страниц для чтения (больше 0).
         :raises ValueError: Если количество страниц для чтения меньше 0.
         :return: Строка с сообщением о прочитанных страницах.
-
         >>> book = Book("Metro 2033", "Dmitry Glukhovsky", 328)
         >>> book.read(50)
         'Вы прочитали 50 страниц из 328.'
@@ -130,7 +129,6 @@ class Book:
     def get_info(self) -> str:
         """
         Получение информации о книге.
-
         :return: Строка с информацией о книге.
         >>> book = Book("Metro 2033", "Dmitry Glukhovsky", 328)
         >>> book.get_info()
